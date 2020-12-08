@@ -1,0 +1,17 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.github.natezhengbne.toolbox.autoconfigure.JacksonAutoConfiguration,\
+  com.github.natezhengbne.toolbox.kafka.dispatcher.KafkaMainController,\
+  com.github.natezhengbne.toolbox.kafka.scanner.KafkaAnnotationScanner,\
+  com.github.natezhengbne.toolbox.kafka.dispatcher.KafkaToKafkaDispatcher,\
+  com.github.natezhengbne.toolbox.kafka.scanner.KafkaMethodHandlerService,\
+  com.github.natezhengbne.toolbox.kafka.util.ObjectParser,\
+  com.github.natezhengbne.toolbox.kafka.util.response.KafkaResponseBuilder,\
+  com.github.natezhengbne.toolbox.kafka.util.ObjectEncoder,\
+  com.github.natezhengbne.toolbox.kafka.util.request.KafkaRequestSender,\
+  com.github.natezhengbne.toolbox.security.UserCredentials,\
+  com.github.natezhengbne.toolbox.kafka.dispatcher.KafkaErrorHandler,\
+  com.github.natezhengbne.toolbox.exception.scanner.ExceptionAnnotationScanner,\
+  com.github.natezhengbne.toolbox.exception.scanner.ExceptionMethodHandlerService,\
+  com.github.natezhengbne.toolbox.exception.processor.ExceptionProcessorAspect,\
+  com.github.natezhengbne.toolbox.exception.processor.AspectConfiguration,\
+  com.github.natezhengbne.toolbox.exceptionhandler.ExceptionHandler

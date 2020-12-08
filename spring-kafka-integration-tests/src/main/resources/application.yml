@@ -1,0 +1,60 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.200.199:9092
+    topics: request-topic, response-topic
+
+    consumer:
+      group-id: foo
+      key-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        schema.registry.url: "http://192.168.200.199:8081"
+        specific.avro.reader: true
+
+    producer:
+      key-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      compression-type: gzip
+      properties:
+        spring.json.trusted.packages: "*"
+        schema.registry.url: "http://192.168.200.199:8081"
+
+
+message:
+  requestConfigMap:
+    getMessage:
+      toTopic : "request-topic"
+      toOperationType : GET
+      toOperationName : "message"
+      replyToTopic : "response-topic"
+      replyToOperationType : RESPONSE
+      replyToOperationName : "message"
+    getMessageWithNumber:
+      toTopic : "request-topic"
+      toOperationType : GET
+      toOperationName : "messageWithNumber"
+      replyToTopic : "response-topic"
+      replyToOperationType : RESPONSE
+      replyToOperationName : "messageWithNumber"
+    getKafkaMessage:
+      toTopic : "request-topic"
+      toOperationType : GET
+      toOperationName : "getKafkaMessage"
+      replyToTopic : "response-topic"
+      replyToOperationType : RESPONSE
+      replyToOperationName : "responseOperation"
+    generateKafkaError:
+      toTopic : "request-topic"
+      toOperationType : GET
+      toOperationName : "messageWithError"
+      replyToTopic : "response-topic"
+      replyToOperationType : RESPONSE
+      replyToOperationName : "messageWithError"
+    unknownRequestMethod:
+      toTopic : "request-topic"
+      toOperationType : GET
+      toOperationName : "unknownRequestMethod"
+      replyToTopic : "response-topic"
+      replyToOperationType : RESPONSE
+      replyToOperationName : "messageWithError"
